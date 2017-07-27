@@ -15,14 +15,14 @@ First, I am using a [Raspberry Pi 3+](https://www.adafruit.com/products/3055).
 With the Jessie Version of Raspian on my Pi3, the default serial port configuration is:<br>
 
 * `/dev/serial0 -> ttyS0`
-  - a.k.a. mini-UART
-  - Is configured for GPIO
-  - Is disabled
-  - uses the service getty to provide console access
+  * a.k.a. mini-UART
+  * Is configured for GPIO
+  * Is disabled
+  * uses the service getty to provide console access
 
 * `/dev/serial1 -> ttyAMA0`
-  - Is configured for bluetooth
-  - Is enabled<br>
+  * Is configured for bluetooth
+  * Is enabled<br>
 
 These points are demonstrated by displaying the current status of the serial ports:
 ```
