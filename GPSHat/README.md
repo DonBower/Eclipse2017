@@ -83,12 +83,7 @@ To disable the gpsd systemd service by running the following commands:
 sudo systemctl stop gpsd.socket
 sudo systemctl disable gpsd.socket
 ```
-Should you ever want to enable the default gpsd systemd service you can run these commands to restore it (but remember the rest of the steps in this
-guide won't work!):
-```
-sudo systemctl enable gpsd.socket
-sudo systemctl start gpsd.socket
-```
+
 After disabling the gpsd systemd service above you're ready to try running gpsd manually. Now run the following command to manually start gpsd and
 point it at the GPS breakout on the USB serial adapter port:
 ```
