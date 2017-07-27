@@ -67,5 +67,45 @@ lrwxrwxrwx 1 root root 7 Aug 26 03:24 /dev/serial0 -> ttyAMA0
 lrwxrwxrwx 1 root root 5 Aug 26 03:24 /dev/serial1 -> ttyS0
 ```
 
+Next we need to install the GPS daemon, gpsd. To install gpsd, simply run the following commands from the console:
+```
+sudo apt-get install gpsd gpsd-clients python-gps
+```
+
+This will install the required packages (an internet connection will be required for this step!)
+Raspbian Jessie systemd service fix
+
+Now, disable a systemd service that gpsd installs. This service has systemd listen on
+a local socket and run gpsd when clients connect to it, however it will also interfere with other gpsd instances that are manually run (like in this guide).
+
+To disable the gpsd systemd service by running the following commands:
+```
+sudo systemctl stop gpsd.socket
+sudo systemctl disable gpsd.socket
+```
+Should you ever want to enable the default gpsd systemd service you can run these commands to restore it (but remember the rest of the steps in this
+guide won't work!):
+```
+sudo systemctl enable gpsd.socket
+sudo systemctl start gpsd.socket
+```
+After disabling the gpsd systemd service above you're ready to try running gpsd manually. Now run the following command to manually start gpsd and
+point it at the GPS breakout on the USB serial adapter port:
+```
+sudo gpsd /dev/ttyAMA0 -F /var/run/gpsd.sock
+```
+
+... which will point the gps daemon to our GPS device on the onboard serial UART.
+
+
+Testing it Out
+After a few seconds, gpsd should open up the proper socket and if the GPS has locked on to a minimum number of satellites, we should be able to get some data from the GPS module.
+To test this, we can use the following command:
+```
+cgps -s
+```
+
+If you have a fix, you'll see something like the following information in the terminal window:
+
 <br>
 <br>
