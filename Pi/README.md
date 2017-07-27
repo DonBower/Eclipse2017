@@ -25,3 +25,6 @@ If you need updates from github, use git pull:
 ```
 git pull origin master
 ```
+
+In addition to the RaspberryPi, we need a storage device for all the data we will collect.
+I'm not really sure at this time what size we need, so I'll go big, ang use the [Samsung 128GB USB 3.0 Flash Drive Fit](https://www.amazon.com/Samsung-128GB-Flash-MUF-128BB-AM/dp/B017DH3O5A) from amazon.
