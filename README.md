@@ -1,9 +1,16 @@
 # Eclipse2017
-Measure the effects of the North America Eclipse of August 21, 2017 with a Raspberry Pi
+Measure the effects of the North America Eclipse of August 21, 2017 with a [Raspberry Pi](https://www.adafruit.com/product/3055)
+
+Julian will be enrolled once again in his school's science fair, so this is a once in a lifetime opportunity for him, even though the science fair is not until later in the calendar year.
+
 ## Objectives:
 Measure the effects of the following during the Eclipse
 [NASA](https://eclipse2017.nasa.gov/citizen-science) wants the citizens to get involved, and have asked for simple temperature change to be recorded and reported back via the app that is available on their website.
 
+However, so that we can participate in both the Citizen Science Project, and the Science Fair, we will be collecting the following information:
+
+
+1. Location. Precise location is always imperative. So we will use [Adafruit's GPS Hat](https://www.adafruit.com/product/2324)
 
 All the stuff we need to launch the balloon
 So while trying to re-configure the Raspberry Pi to use the on-board UART
