@@ -53,7 +53,7 @@ look for devices mounted to /dev/usbsda*, and unmount them.  For example if you 
   sudo umount /dev/usbsda1
   ```
 
-Next, *and this is distructive*, remove any partitions, and create a new, fresh one.
+Next, *and this is destructive*, remove any partitions, and create a new, fresh one.
 
   ```
   fdisk /dev/usbsda
@@ -72,9 +72,13 @@ Now, format the new partition for ext4 file system.
 
 The follow steps will allow the USB drive to be persistently mounted.
 
-  ```
-  sudo mkdir /mnt/usbstick
-  sudo chmod 777 /mnt/usbstick
-  sudo echo -e "LABEL=Eclipse2017\t/mnt/usbstick\text4\tdefaults\t0 1" >> /etc/fstab
-  ```
-  
+```
+sudo mkdir /mnt/usbstick
+sudo chmod 777 /mnt/usbstick
+sudo cat >> /etc/fstab <<EOF
+LABEL=Eclipse2017  /mnt/usbstick ext4 defaults 0 1
+EOF
+sudo mount -a
+```
+
+You should now be able to `df -h` and see the usbstick mounted on /mnt/usbstick.
