@@ -43,27 +43,38 @@ In addition to the RaspberryPi, we need a storage device for all the data we wil
 I'm not really sure at this time what size we need, so I'll go big, and use the [Samsung 128GB USB 3.0 Flash Drive Fit](https://www.amazon.com/Samsung-128GB-Flash-MUF-128BB-AM/dp/B017DH3O5A) from amazon.
 First, find any unintential mounts from pluging in the usbstick.
 
-  `df -h`
+  ```
+  df -h
+  ```
 
 look for devices mounted to /dev/usbsda*, and unmount them.  For example if you see a directory mounted on /dev/usbsda1, then run this command to unmount it.
 
-  `sudo umount /dev/usbsda1`
+  ```
+  sudo umount /dev/usbsda1
+  ```
 
 Next, *and this is distructive*, remove any partitions, and create a new, fresh one.
 
+  ```
   fdisk /dev/usbsda
   p # This will print all the partitions
   d # take the defaults to delete the last partition. Repeat as required to delete all partitions
   n # This will create a new partition.  Take all the defaults.
   w # Rewrite the new partition table.
   sudo mkfs.ext4 /dev/usbsda1
+  ```
 
 Now, format the new partition for ext4 file system.
 
+  ```
   sudo mkfs.ext4 -L Eclipse2017 /dev/usbsda1
+  ```
 
 The follow steps will allow the USB drive to be persistently mounted.
 
+  ```
   sudo mkdir /mnt/usbstick
   sudo chmod 777 /mnt/usbstick
   sudo echo -e "LABEL=Eclipse2017\t/mnt/usbstick\text4\tdefaults\t0 1" >> /etc/fstab
+  ```
+  
