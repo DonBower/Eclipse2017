@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-#-------------------------------------------------
-# balloon.py
-# Collect Humidity, Temperature from DHT and Barometric Pressure and Temperature from BMP085 sensors
-# and record them into a log file
-# 2016-17-25 - Donald Bower
-#------------------------------------------------
+'''
+rundht.py
+Collect Humidity, Temperature from DHT-22 sensor
+and record them into a log file
+2016-07-27 - Donald Bower
+'''
 import Adafruit_DHT as DHT
 import RPi.GPIO as GPIO
 import time
