@@ -1,0 +1,4 @@
+*.jpg
+!EM_spectrum_compare_level1_lg.jpg
+!"cgps screen.jpg"
+!test.jpg
