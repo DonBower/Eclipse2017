@@ -11,14 +11,16 @@ import time
 
 DHTSensor = 22
 DHTGPIOPin = 21
-TimeStampStr = time.strftime("%Y-%m-%d_%H-%M-%S")
-logfile='/mnt/usbstick/dhtdata_{:s}.txt'.format(TimeStampStr)
 
-F1 = open(logfile, "w", 1) # Open File, write to disk every line.
-F1.write("test\n")
+BASEDIR="/mnt/usbstick/data"
+DATE=$(date +"%Y-%m-%d_%H-%M-%S")
+DATAFILE='$BASEDIR/dhtdata_{:s}.txt'.format(TimeStampStr)
+
+F1 = open(DATAFILE, "w", 1) # Open File, write to disk every line.
+
 def setup():
 	print ("Setting up, please wait...")
-	print "Open File ", logfile, " for append"
+	print "Open File ", DATAFILE, " for append"
 
 def loop():
 

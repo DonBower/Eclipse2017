@@ -1,5 +1,5 @@
 #!/bin/bash
-BASEDIR="/mnt/usbstick"
+BASEDIR="/mnt/usbstick/data"
 DATE=$(date +"%Y-%m-%d_%H-%M-%S")
 LOGFILE=$BASEDIR/gpslog.txt
 RAWFILE=$BASEDIR/gpsdata/gpsraw-$DATE.txt

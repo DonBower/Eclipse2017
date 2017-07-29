@@ -9,14 +9,15 @@ import Adafruit_BMP.BMP085 as BMP085
 import RPi.GPIO as GPIO
 import time
 
-TimeStampStr = time.strftime("%Y-%m-%d_%H-%M-%S")
-logfile='/mnt/usbstick/bmpdata_{:s}.txt'.format(TimeStampStr)
+BASEDIR="/mnt/usbstick/data"
+DATE=$(date +"%Y-%m-%d_%H-%M-%S")
+DATAFILE='$BASEDIR/bmpdata_{:s}.txt'.format(TimeStampStr)
 
-F1 = open(logfile, "w", 1) # Open File, write to disk every line.
+F1 = open(DATAFILE, "w", 1) # Open File, write to disk every line.
 
 def setup():
 	print ("Setting up, please wait...")
-	print "Open File ", logfile, " for append"
+	print "Open File ", DATAFILE, " for append"
 
 def loop():
 	sensor = BMP085.BMP085()
