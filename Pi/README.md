@@ -84,8 +84,8 @@ sudo mount -a
 You should now be able to `df -h` and see the usbstick mounted on /mnt/usbstick.
 
 # I2C Interface
-To setup the I2C [Inter-Integrated Circuit](https://en.wikipedia.org/wiki/I%C2%B2C)
-https://en.wikipedia.org/wiki/I%C2%B2C Interface, execute the following:
+To setup the [I2C (Inter-Integrated Circuit)](https://en.wikipedia.org/wiki/I%C2%B2C)
+Interface, execute the following:
 
 ```
 sudo apt-get install -y python-smbus
