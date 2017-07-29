@@ -40,8 +40,8 @@ git pull origin master
 ```
 
 In addition to the RaspberryPi, we need a storage device for all the data we will collect.
-I'm not really sure at this time what size we need, so I'll go big, and use the [Samsung 128GB USB 3.0 Flash Drive Fit](https://www.amazon.com/Samsung-128GB-Flash-MUF-128BB-AM/dp/B017DH3O5A) from amazon.
-First, find any unintential mounts from pluging in the usbstick.
+I'm not really sure at this time what size we need, so I'll go big, and use the [Samsung 32GB USB 3.0 Flash Drive Fit](https://www.amazon.com/Samsung-Flash-Drive-MUF-32BB-AM/dp/B013CCTOC2) from amazon.
+First, find any unintentional mounts from plugging in the flash drive.
 
   ```
   df -h
