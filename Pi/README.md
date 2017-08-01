@@ -1,4 +1,7 @@
 First order of business, was to connect to my WiFi, which had to be done via the KVM Interface. <br />
+
+# Firmware/OS Updates
+
 Next we update/upgrade the OS to the latest version, as well as the RaspberryPi Firmware.  <br />
 
 ```
@@ -14,6 +17,8 @@ sudo apt-get upgrade
 sudo apt-get dist-upgrade
 sudo shutdown -r now
 ```
+
+# SSH Interface
 
 Next order of business is get a ssh key. (Take all defaults)
 
@@ -50,6 +55,8 @@ Interfacing Options > P2 Enable SSH > Enable SSH.
 Reboot with `sudo shutdown -r now`
 
 
+# Git/GitHub
+
 Then it's time to get git, and configure the git Global Variables <br />
 
 ```
@@ -72,6 +79,8 @@ If you need updates from github, use git pull:
 cd ~/Developer/Eclipse2017
 git pull origin master
 ```
+
+# External Storage (USB Stick)
 
 In addition to the RaspberryPi, we need a storage device for all the data we will collect.
 I'm not really sure at this time what size we need, so I'll go big, and use the [Samsung 32GB USB 3.0 Flash Drive Fit](https://www.amazon.com/Samsung-Flash-Drive-MUF-32BB-AM/dp/B013CCTOC2) from amazon.
