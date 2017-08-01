@@ -56,7 +56,7 @@ dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p7 rootfstype=ext4 elevator=d
 ```
 
 <br>
-Finally we can disable that pesky bluetooth service by adding the line `dtoverlay=pi3-disable-bt` to the bottom of <b>/boot/config.txt</b> and reboot. <br>
+Finally we can swap the bluetooth port with the mini-UART by adding the line `dtoverlay=pi3-miniuart-bt` to the bottom of <b>/boot/config.txt</b> and reboot. <br>
 <br>
 
 Viola!<br>
