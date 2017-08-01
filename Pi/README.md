@@ -1,4 +1,33 @@
-First order of business, was to connect to my WiFi, which had to be done via the KVM Interface. <br />
+# Connect to network
+
+First order of business, was to connect to my WiFi, which had to be done via the KVM Interface.  First select the Network Interface Icon to show the available WiFi Routers.
+<br>
+
+![alt text][WiFi]
+
+[WiFi]: https://github.com/DonBower/Eclipse2017/blob/master/Pi/SelectWiFi.png "Select WiFi"
+
+<br>
+
+Enter the Password...
+<br>
+
+![alt text][Password]
+
+[Password]: https://github.com/DonBower/Eclipse2017/blob/master/Pi/EnterWiFiPassword.png "Enter WiFi Password"
+
+<br>
+
+After a few moments, your RaspberryPi should be connected to the network.  Hover the mouse over the WiFi Icon to show the status and address:
+
+<br>
+
+![alt text][Connected]
+
+[Connected]: https://github.com/DonBower/Eclipse2017/blob/master/Pi/WiFiConnected.png "Your WiFi is connected"
+
+<br>
+
 
 # Firmware/OS Updates
 
