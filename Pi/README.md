@@ -143,7 +143,7 @@ Interface, execute the following:
 sudo apt-get install -y python-smbus
 sudo apt-get install -y i2c-tools
 ```
-Then use raspi-config to enable the Interface.
+Then use `sudo raspi-config` to enable the Interface.
 
 View the connected devices:
 ```
