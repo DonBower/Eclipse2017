@@ -28,17 +28,14 @@ Now is a perfect oppertunity to enable SSH, so that you can access your Pi via t
 `sudo raspi-config`
 Interfacing Options > P2 Enable SSH > Enable SSH.
 ![alt text][Main]
-
 [Main]: https://github.com/DonBower/Eclipse2017/blob/master/Pi/Interfacing%20Options.png "raspi-config Main Screen"
 <br>
 ![alt text][P2SSH]
-
 [P2SSH]: https://github.com/DonBower/Eclipse2017/blob/master/Pi/P2%20Enable%20SSH.png "raspi-config P2 Enable SSH"
-
 <br>
 ![alt text][SSH]
-
 [SSH]: https://github.com/DonBower/Eclipse2017/blob/master/Pi/Enable%20SSH.png "raspi-config Enable SSH"
+<br>
 
 Reboot with `sudo shutdown -r now`
 
