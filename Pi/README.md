@@ -87,7 +87,7 @@ look for devices mounted to /dev/sda*, and unmount them.  For example if you see
 
 ![alt text][DFH]
 
-[DFH]: https://github.com/DonBower/Eclipse2017/blob/master/Pi/F%20-h%20output.png "raspi-config Enable SSH"
+[DFH]: https://github.com/DonBower/Eclipse2017/blob/master/Pi/DF%20-h%20output.png "df -h output example"
 
 <br>
 
