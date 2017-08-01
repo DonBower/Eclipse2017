@@ -103,7 +103,7 @@ cgps -s
 If you have a fix, you'll see something like the following information in the terminal window:
 ![alt text][logo]
 
-[logo]: https://github.com/DonBower/Eclipse2017/blob/master/GPSHat/cgps%20screen.jpg "cgps -s output"
+[logo]: https://github.com/DonBower/Eclipse2017/blob/master/GPSHat/cgps%20-s%20output.png "cgps -s output"
 
 <br>
 <br>
