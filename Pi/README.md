@@ -4,6 +4,12 @@ Next we update/upgrade the OS to the latest version, as well as the RaspberryPi 
 ```
 sudo apt-get update
 sudo rpi-update
+```
+
+At this point, your system may have actually performed a firmware update.  And a brave man may continue on and reboot later.  I am not that brave. `sudo shutdown -r now` if you are so inclined.
+
+
+```
 sudo apt-get upgrade
 sudo apt-get dist-upgrade
 sudo shutdown -r now
