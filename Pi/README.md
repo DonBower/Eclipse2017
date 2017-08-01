@@ -1,6 +1,6 @@
 # Connect to network
 
-First order of business, was to connect to my WiFi, which had to be done via the KVM Interface.  First select the Network Interface Icon to show the available WiFi Routers.
+First order of business, was to connect to my WiFi, which had to be done via the KVM Interface.  Click on the Network Interface Icon, which is two Xs and just to the left of the speaker icon, to show the available WiFi Routers.
 <br>
 
 ![alt text][WiFi]
