@@ -27,8 +27,8 @@ thisGain = tsl.get_gain()
 print('New Gain is {}'.format(thisGain))
 
 def setup():
-	print ("Setting up, please wait...")
-	print "Open File ", DATAFILE, " for append"
+	print("Setting up, please wait...")
+	print("Open File {} for append".format(DATAFILE))
     print("{0:>10} {1:>10} {2:>10}".format('Full Lux', 'Visiable', 'Infrared'))
 
 def loop():
