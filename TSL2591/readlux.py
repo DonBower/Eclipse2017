@@ -26,5 +26,5 @@ print full, lux, ir
 newfull = tsl.get_luminosity(FULLSPECTRUM)
 newlux = tsl.get_luminosity(VISIBLE)
 newir = tsl.get_luminosity(INFRARED)
-
-print newfull, newlux, newir
+print('{10}{10}{10}'.format('Full Lux', 'Visiable', 'Infrared')
+print('{10}{10}{10}'.format(newfull, newlux, newir)
