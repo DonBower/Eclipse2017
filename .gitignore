@@ -1,4 +1,2 @@
-*.jpg
-!EM_spectrum_compare_level1_lg.jpg
-!"cgps screen.jpg"
-!test.jpg
+TSL2591/tsl2591.egg-info/
+TSL2591/tsl2591.egg-info/*
