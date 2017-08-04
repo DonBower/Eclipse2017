@@ -1,4 +1,12 @@
 import tsl2591
+import time
+
+BASEDIR="/mnt/usbstick/data"
+DATE=$(date +"%Y-%m-%d_%H-%M-%S")
+DATAFILE='$BASEDIR/tsldata_{:s}.txt'.format(TimeStampStr)
+
+F1 = open(DATAFILE, "w", 1) # Open File, write to disk every line.
+
 VISIBLE = 2  # channel 0 - channel 1
 INFRARED = 1  # channel 1
 FULLSPECTRUM = 0  # channel 0
@@ -18,14 +26,29 @@ tsl.set_gain(GAIN_MED)
 thisGain = tsl.get_gain()
 print('New Gain is {}'.format(thisGain))
 
+def setup():
+	print ("Setting up, please wait...")
+	print "Open File ", DATAFILE, " for append"
+    print("{0:>10} {1:>10} {2:>10}".format('Full Lux', 'Visiable', 'Infrared'))
 
-full, ir = tsl.get_full_luminosity()  # read raw values (full spectrum and ir spectrum)
-#print full, ir
-lux = tsl.calculate_lux(full, ir)  # convert raw values to lux
-#print full, lux, ir
-newfull = tsl.get_luminosity(FULLSPECTRUM)
-newlux = tsl.get_luminosity(VISIBLE)
-newir = tsl.get_luminosity(INFRARED)
-print("{0:>10} {1:>10} {2:>10}".format('Full Lux', 'Visiable', 'Infrared'))
-print("{0:10} {1:10} {2:10}".format(newfull, newlux, newir))
-#print ("{0:=+010.5f}{0:=+010.5f}{0:=+010.5f}".format(TimeStampStr,BMPTempStr,BMPPressureStr))
+def loop():
+	while True:
+
+    newfull = tsl.get_luminosity(FULLSPECTRUM)
+    newlux = tsl.get_luminosity(VISIBLE)
+    newir = tsl.get_luminosity(INFRARED)
+	TimeStampStr = time.strftime("%Y-%m-%d %H:%M:%S")
+
+    print("{0:10} {1:10} {2:10}".format(newfull, newlux, newir))
+    F1.write('{0:20} {1:10} {2:10} {3:10}\n'.format(TimeStampStr, newfull, newlux, newir))
+	time.sleep(5)
+
+def destroy():
+	F1.close()
+
+if __name__ == "__main__":
+	setup()
+	try:
+		loop()
+	except KeyboardInterrupt:
+		destroy()
