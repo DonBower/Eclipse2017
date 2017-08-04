@@ -26,5 +26,6 @@ lux = tsl.calculate_lux(full, ir)  # convert raw values to lux
 newfull = tsl.get_luminosity(FULLSPECTRUM)
 newlux = tsl.get_luminosity(VISIBLE)
 newir = tsl.get_luminosity(INFRARED)
-print('%10s %10s %10s'.format('Full Lux', 'Visiable', 'Infrared')
-print('%10d %10d %10d'.format(newfull, newlux, newir)
+print('%10s %10s %10s'.format('Full Lux', 'Visiable', 'Infrared'))
+print('%10d %10d %10d'.format(newfull, newlux, newir))
+#print ("{0:=+010.5f}{0:=+010.5f}{0:=+010.5f}".format(TimeStampStr,BMPTempStr,BMPPressureStr))
