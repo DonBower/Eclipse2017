@@ -1,2 +1,6 @@
-TSL2591/tsl2591.egg-info/
+TSL2591/tsl2591.egg-info
 TSL2591/tsl2591.egg-info/*
+TSL2591/build
+TSL2591/build/*
+TSL2591/dist
+TSL2591/dist/*
