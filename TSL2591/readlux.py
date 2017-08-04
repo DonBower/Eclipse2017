@@ -20,9 +20,9 @@ print('New Gain is {}'.format(thisGain))
 
 
 full, ir = tsl.get_full_luminosity()  # read raw values (full spectrum and ir spectrum)
-print full, ir
+#print full, ir
 lux = tsl.calculate_lux(full, ir)  # convert raw values to lux
-print full, lux, ir
+#print full, lux, ir
 newfull = tsl.get_luminosity(FULLSPECTRUM)
 newlux = tsl.get_luminosity(VISIBLE)
 newir = tsl.get_luminosity(INFRARED)
