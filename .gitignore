@@ -4,3 +4,4 @@ TSL2591/build
 TSL2591/build/*
 TSL2591/dist
 TSL2591/dist/*
+TSL2591/tsl2591/*.pyc
