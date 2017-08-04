@@ -27,28 +27,29 @@ thisGain = tsl.get_gain()
 print('New Gain is {}'.format(thisGain))
 
 def setup():
-	print("Setting up, please wait...")
-	print("Open File {} for append".format(DATAFILE))
+    print("Setting up, please wait...")
+    print("Open File {} for append".format(DATAFILE))
     print("{0:>10} {1:>10} {2:>10}".format('Full Lux', 'Visiable', 'Infrared'))
 
+
 def loop():
-	while True:
+    while True:
 
-    newfull = tsl.get_luminosity(FULLSPECTRUM)
-    newlux = tsl.get_luminosity(VISIBLE)
-    newir = tsl.get_luminosity(INFRARED)
-	TimeStampStr = time.strftime("%Y-%m-%d %H:%M:%S")
+        newfull = tsl.get_luminosity(FULLSPECTRUM)
+        newlux = tsl.get_luminosity(VISIBLE)
+        newir = tsl.get_luminosity(INFRARED)
+        TimeStampStr = time.strftime("%Y-%m-%d %H:%M:%S")
 
-    print("{0:10} {1:10} {2:10}".format(newfull, newlux, newir))
-    F1.write('{0:20} {1:10} {2:10} {3:10}\n'.format(TimeStampStr, newfull, newlux, newir))
-	time.sleep(5)
+        print("{0:10} {1:10} {2:10}".format(newfull, newlux, newir))
+        F1.write('{0:20} {1:10} {2:10} {3:10}\n'.format(TimeStampStr, newfull, newlux, newir))
+        time.sleep(5)
 
 def destroy():
-	F1.close()
+    F1.close()
 
 if __name__ == "__main__":
-	setup()
-	try:
-		loop()
-	except KeyboardInterrupt:
-		destroy()
+    setup()
+    try:
+        loop()
+    except KeyboardInterrupt:
+        destroy()
