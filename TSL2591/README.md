@@ -14,7 +14,8 @@ In the last step ('Testing I2C') you should see at least one connected device, y
 
 ## Installing ##
 
-To install the python module download this repository and run:
+To install the python module you first need to download this repository and install the ibffi-dev package 
+ run:
 
 ```
 python setup.py install
