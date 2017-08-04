@@ -2,8 +2,8 @@ import tsl2591
 import time
 
 BASEDIR="/mnt/usbstick/data"
-DATE=$(date +"%Y-%m-%d_%H-%M-%S")
-DATAFILE='$BASEDIR/tsldata_{:s}.txt'.format(TimeStampStr)
+TimeStampStr = time.strftime("%Y-%m-%d %H:%M:%S")
+DATAFILE = '$BASEDIR/tsldata_{:s}.txt'.format(TimeStampStr)
 
 F1 = open(DATAFILE, "w", 1) # Open File, write to disk every line.
 
