@@ -29,7 +29,7 @@ print('New Gain is {}'.format(thisGain))
 def setup():
     print("Setting up, please wait...")
     print("Open File {} for append".format(DATAFILE))
-    print("{0:>10} {1:>10} {2:>10}".format('Full Lux', 'Visiable', 'Infrared'))
+    print("{0:>10} {1:>10} {2:>10} {3:>10}".format('Time', 'Full Lux', 'Visiable', 'Infrared'))
 
 
 def loop():
@@ -39,10 +39,11 @@ def loop():
         newlux = tsl.get_luminosity(VISIBLE)
         newir = tsl.get_luminosity(INFRARED)
         TimeStampStr = time.strftime("%Y-%m-%d %H:%M:%S")
+        TimeStr = time.strftime("%H:%M:%S")
 
-        print("{0:10} {1:10} {2:10}".format(newfull, newlux, newir))
+        print("{0:10} {1:10} {2:10} {3:10}".format(TimeStr,newfull, newlux, newir))
         F1.write('{0:20} {1:10} {2:10} {3:10}\n'.format(TimeStampStr, newfull, newlux, newir))
-        time.sleep(5)
+        time.sleep(.5)
 
 def destroy():
     F1.close()
