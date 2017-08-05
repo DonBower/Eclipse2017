@@ -2,7 +2,7 @@
 BASEDIR="/mnt/usbstick/data"
 DATE=$(date +"%Y-%m-%d_%H-%M-%S")
 LOGFILE=$BASEDIR/gpslog.txt
-RAWFILE=$BASEDIR/gpsdata/gpsraw-$DATE.txt
+RAWFILE=$BASEDIR/rawdata/gpsraw-$DATE.txt
 DATAFILE=$BASEDIR/gpsdata-$DATE.txt
 ts=$(date +"%Y/%m/%d %H:%M:%S.%N")
 echo $ts "Start GPS Process" >> $LOGFILE
