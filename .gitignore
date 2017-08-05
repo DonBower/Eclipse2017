@@ -5,3 +5,5 @@ TSL2591/build/*
 TSL2591/dist
 TSL2591/dist/*
 TSL2591/tsl2591/*.pyc
+TSL2591/tsl2591/__pycache__
+TSL2591/tsl2591/__pycache__/*
