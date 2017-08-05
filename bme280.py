@@ -10,7 +10,7 @@ import time
 
 BASEDIR = "/mnt/usbstick/data"
 DATESTR = time.strftime("%Y-%m-%d_%H:%M:%S")
-DATAFILE='$BASEDIR/wxdata_{:s}.txt'.format(DATESTR)
+DATAFILE='{:s}/wxdata_{:s}.txt'.format(BASEDIR,DATESTR)
 
 F1 = open(DATAFILE, "w", 1) # Open File, write to disk every line.
 
