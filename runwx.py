@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 '''
-  runbme.py
+  runwx.py
   Collect Temperature, Humidity & Barometric Pressure and Temperature from BME280 sensor
   and record them into a log file
   2017-08-04 - Donald Bower
