@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from Adafruit_BME280 import *
 import time
 
@@ -10,7 +10,7 @@ while True:
     pascals = sensor.read_pressure()
     hectopascals = pascals / 100
     humidity = sensor.read_humidity()
-    print '{0:0.3f} deg C {0:0.2f} hPa {0:0.2f} %'.format(degrees, hectopascals, humidity)
+    print('{0:0.3f} deg C {0:0.2f} hPa {0:0.2f} %'.format(degrees, hectopascals, humidity))
     time.sleep(5)
 
 #    print 'Temp      = {0:0.3f} deg C'.format(degrees)
