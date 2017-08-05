@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from Adafruit_BME280 import *
 import time
 

@@ -1,7 +1,12 @@
 #!/bin/bash
-ts=$(date +"%Y/%m/%d %H:%M:%S")
-echo $ts "Start WX, GPS, CAM" >>  /home/pi/Eclipse2017/testlog.txt
-nohup /home/pi/Eclipse2017/GPSHat/rungps.sh > /dev/null 2>&1 &
-nohup /home/pi/Eclipse2017/BMP280/runbmp.py > /dev/null 2>&1 &
-nohup /home/pi/Eclipse2017/DHT22/rundht.py > /dev/null 2>&1 &
-nohup /home/pi/Eclipse2017/CAMERA/runcam.sh > /dev/null 2>&1 &
+BASEDIR="/mnt/usbstick"
+DATE=$(date +"%Y-%m-%d_%H-%M-%S")
+GPSERRFILE=$BASEDIR/gpserrlog$DATE.txt
+WXERRFILE=$BASEDIR/wxerrlog$DATE.txt
+LUXERRFILE=$BASEDIR/luxerrlog$DATE.txt
+CAMERRFILE=$BASEDIR/camerrlog$DATE.txt
+echo $ts "Start WX, GPS, CAM" >>  $BASEDIR/startlog.txt
+nohup /home/pi/Eclipse2017/GPSHat/rungps.sh > /dev/null 2>$GPSERRFILE &
+nohup /home/pi/Eclipse2017/runbme.py > /dev/null 2>$WXERRFILE &
+nohup /home/pi/Eclipse2017/TSL2591/runlux.py > /dev/null 2>$LUXERRFILE &
+nohup /home/pi/Eclipse2017/CAMERA/runcam.sh > /dev/null 2>$CAMERRFILE &
