@@ -15,8 +15,8 @@ DATAFILE='$BASEDIR/wxdata_{:s}.txt'.format(DATESTR)
 F1 = open(DATAFILE, "w", 1) # Open File, write to disk every line.
 
 def setup():
-	print ("Setting up BME280 Sensor, please wait...")
-	print "Open File ", DATAFILE, " for append"
+	print('Setting up BME280 Sensor, please wait...')
+	print('Open File {:s} for append'.format(DATAFILE))
 
 def loop():
 	sensor = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_OSAMPLE_8)
