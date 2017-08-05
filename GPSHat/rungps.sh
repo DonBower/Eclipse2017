@@ -22,10 +22,11 @@ function extract_dms()
   printf "%i %i %i\n" $degrees $minutes $seconds
 }
 
-function dms_to_dd(degrees, minutes, seconds) {
-  dd=`echo $degrees $minutes $seconds | awk '{printf ("%.4f\n",$1+$2/60+$3/3600)}'`
+function dms_to_dd() {
+  dd=`echo $1 $2 $3 | awk '{printf ("%.4f\n",$1+$2/60+$3/3600)}'`
   printf ("%3.6f",dd)
 }
+
 while [ 1 ]
   do
       read this_line
@@ -57,12 +58,12 @@ while [ 1 ]
     		gps_elev=$(echo $this_line | cut -d, -f 10)
   #  		echo $this_line >> $DATAFILE
 #    		sleep 5s
-        extract_dms(gps_latdeg) | read lat_d lat_m lat_s
-        extract_dms(gps_londeg) | read lon_d lon_m lon_s
-        dms_to_dd(lat_d, lat_m, lat_s) | read lat_dd
-        dms_to_dd(lon_d, lon_m, lon_s) | read lon_dd
-        printf("%22s %3.6f %3.6f",$ts,lat_dd, lon_dd)
-        printf("%22s %3.6f %3.6f",$ts,lat_dd, lon_dd) >> %DATAFILE
+        extract_dms($gps_latdeg) | read lat_d lat_m lat_s
+        extract_dms($gps_londeg) | read lon_d lon_m lon_s
+        dms_to_dd($lat_d, $lat_m, $lat_s) | read lat_dd
+        dms_to_dd($lon_d, $lon_m, $lon_s) | read lon_dd
+        printf "%22s %3.6f %3.6f" $ts $lat_dd $lon_dd
+        printf "%22s %3.6f %3.6f" $ts $lat_dd $lon_dd >> %DATAFILE
   	fi
 
   	if [[ $this_line == \$GPRMC* ]]
