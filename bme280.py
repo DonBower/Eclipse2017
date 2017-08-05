@@ -36,6 +36,7 @@ def loop():
             F1.write('{0:18} {1:0.3f}C {2:0.2f}hPa {3:0.2f}%\n'.format(TimeStampStr,degrees, hectopascals, humidity))
         else:
             print ("Failed to get WX readings, will retry in ~5 seconds")
+        time.sleep(1)
         timeseconds = int(time.strftime("%S"))
         while timeseconds%5 > 0:
             time.sleep(.2)
