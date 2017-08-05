@@ -39,7 +39,7 @@ def loop():
         else:
             print ("Failed to get WX readings, will retry in ~5 seconds")
         while True:
-            timeseconds = time.strftime("%S")+60
+            timeseconds = int(time.strftime("%S"))+60
             if timeseconds%12 > 0:
                 time.sleep(.1)
 
