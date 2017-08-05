@@ -54,7 +54,7 @@ while [ 1 ]
               # show
   			if [[ "$gps_fix" != "V" ]]
   			then
-  				echo $ts ${gps_pos[@]} >> $DATAFILE
+  				echo -e "$ts ${gps_pos[@]}" >> $DATAFILE
   				sleep 5s
   			fi
   		fi
