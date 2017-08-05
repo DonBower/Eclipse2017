@@ -13,15 +13,13 @@ DATESTR = time.strftime("%Y-%m-%d_%H:%M:%S")
 DATAFILE='{:s}/wxdata_{:s}.txt'.format(BASEDIR,DATESTR)
 
 F1 = open(DATAFILE, "w", 1) # Open File, write to disk every line.
-global readcount
-readcount = 0
 
 def setup():
     print('Setting up BME280 Sensor, please wait...')
     print('Open File {:s} for append'.format(DATAFILE))
 
 def loop():
-    global readcount
+    readcount = 0
     sensor = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_OSAMPLE_8)
 
     while True:
@@ -38,11 +36,10 @@ def loop():
             F1.write('{0:18} {1:0.3f}C {2:0.2f}hPa {3:0.2f}%\n'.format(TimeStampStr,degrees, hectopascals, humidity))
         else:
             print ("Failed to get WX readings, will retry in ~5 seconds")
-        timeseconds = int(time.strftime("%S"))+60
-        while timeseconds%12 > 0:
+        timeseconds = int(time.strftime("%S"))
+        while timeseconds%5 > 0:
             time.sleep(.2)
-            timeseconds = int(time.strftime("%S"))+60
-
+            timeseconds = int(time.strftime("%S"))
 
 def destroy():
     F1.close()
