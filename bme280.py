@@ -13,6 +13,8 @@ DATESTR = time.strftime("%Y-%m-%d_%H:%M:%S")
 DATAFILE='{:s}/wxdata_{:s}.txt'.format(BASEDIR,DATESTR)
 
 F1 = open(DATAFILE, "w", 1) # Open File, write to disk every line.
+global readcount
+readcount = 0
 
 def setup():
     print('Setting up BME280 Sensor, please wait...')
