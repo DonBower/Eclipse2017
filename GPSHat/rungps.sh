@@ -19,7 +19,11 @@ function extract_dms()
     minutes=${1:2:2}
   fi
   seconds=`echo $gpgga_pos | cut -d '.' -f 2`
-  printf ('%3dD %2dM %4dS',degrees, minutes, seconds)
+  echo degrees
+  echo minutes
+  echo seconds
+
+  printf ("%3dD %2dM %4dS", degrees, minutes, seconds)
 }
 
 function dms_to_dd(degrees, minutes, seconds) {
