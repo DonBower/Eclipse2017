@@ -21,6 +21,7 @@ def setup():
     print('Open File {:s} for append'.format(DATAFILE))
 
 def loop():
+    global readcount
     sensor = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_OSAMPLE_8)
 
     while True:
@@ -31,12 +32,10 @@ def loop():
         if degrees is not None and pascals is not None and humidity is not None:
             hectopascals = pascals / 100
             TimeStampStr = time.strftime("%Y-%m-%d %H:%M:%S")
-            global readcount
             if readcount > 6:
                 print('{0:18}{1:0.3f}C {2:0.2f}hPa {3:0.2f}%'.format(TimeStampStr,degrees, hectopascals, humidity))
-                global readcount
                 readcount = 0
-            F1.write('{0:18}{1:0.3f}C {2:0.2f}hPa {3:0.2f}%'.format(TimeStampStr,degrees, hectopascals, humidity))
+            F1.write('{0:18}{1:0.3f}C {2:0.2f}hPa {3:0.2f}%\n'.format(TimeStampStr,degrees, hectopascals, humidity))
         else:
             print ("Failed to get WX readings, will retry in 5 seconds")
         time.sleep(5)
