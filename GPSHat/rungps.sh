@@ -24,7 +24,7 @@ function extract_dms()
 
 function dms_to_dd() {
   dd=`echo $1 $2 $3 | awk '{printf ("%.4f\n",$1+$2/60+$3/3600)}'`
-  printf ("%3.6f",dd)
+  printf "%3.6f\n" $dd
 }
 
 while [ 1 ]
