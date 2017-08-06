@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 IFS=":"
 BASEDIR="/mnt/usbstick/data"
 DATE=$(date +"%Y-%m-%d_%H-%M-%S")
@@ -10,7 +10,8 @@ echo $ts "Start GPS Process" >> $LOGFILE
 
 function extract_dms()
 {
-  degrees_mf=`echo $gpgga_pos | cut -d '.' -f 1`
+  echo -e "convert $1 to dms"
+  degrees_mf=`echo $1 | cut -d '.' -f 1`
   if [[ ${#degrees_mf} -eq 5 ]]; then
     echo "degrees is 5 in length"
     degrees=${1:0:3}
@@ -24,7 +25,7 @@ function extract_dms()
     echo -e "degrees is $degrees"
     echo -e "munutes is $minutes"
   fi
-  seconds=`echo $gpgga_pos | cut -d '.' -f 2`
+  seconds=`echo $1 | cut -d '.' -f 2`
   printf "%i:%i:%i\n" $degrees $minutes $seconds
 }
 
