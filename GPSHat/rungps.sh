@@ -62,8 +62,8 @@ while [ 1 ]
         extract_dms $gps_londeg | read lon_d lon_m lon_s
         dms_to_dd $lat_d, $lat_m, $lat_s | read lat_dd
         dms_to_dd $lon_d, $lon_m, $lon_s | read lon_dd
-        printf "%22s %3.6f %3.6f" $ts $lat_dd $lon_dd
-        printf "%22s %3.6f %3.6f" $ts $lat_dd $lon_dd >> %DATAFILE
+        printf "%22s %3.6f %3.6f\n" $ts $lat_dd $lon_dd
+        printf "%22s %3.6f %3.6f\n" $ts $lat_dd $lon_dd >> %DATAFILE
   	fi
 
   	if [[ $this_line == \$GPRMC* ]]
