@@ -11,12 +11,18 @@ echo $ts "Start GPS Process" >> $LOGFILE
 function extract_dms()
 {
   degrees_mf=`echo $gpgga_pos | cut -d '.' -f 1`
-  if [[ ${#degrees_mf} -eq 3 ]]; then
+  if [[ ${#degrees_mf} -eq 5 ]]; then
+    echo "degrees is 5 in length"
     degrees=${1:0:3}
     minutes=${1:3:2}
+    echo -e "degrees is $degrees"
+    echo -e "munutes is $minutes"
   else
+    echo "degrees is not 5 in length"
     degrees=${1:0:2}
     minutes=${1:2:2}
+    echo -e "degrees is $degrees"
+    echo -e "munutes is $minutes"
   fi
   seconds=`echo $gpgga_pos | cut -d '.' -f 2`
   printf "%i:%i:%i\n" $degrees $minutes $seconds
