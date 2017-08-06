@@ -1,4 +1,4 @@
-#!/bin/bash x
+#!/bin/bash -x
 IFS=":"
 BASEDIR="/mnt/usbstick/data"
 DATE=$(date +"%Y-%m-%d_%H-%M-%S")
