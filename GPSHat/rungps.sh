@@ -58,8 +58,9 @@ while [ 1 ]
     		gps_elev=$(echo $this_line | cut -d, -f 10)
   #  		echo $this_line >> $DATAFILE
 #    		sleep 5s
-        printf "gps_latdeg is %5.4f" $gps_latdeg
+        printf "gps_latdeg is %5.4f\n" $gps_latdeg
         extract_dms $gps_latdeg | read lat_d lat_m lat_s
+        printf "extract_dms returned  %i %i %i\n" $lat_d $lat_m $lat_s
         extract_dms $gps_londeg | read lon_d lon_m lon_s
         dms_to_dd $lat_d, $lat_m, $lat_s | read lat_dd
         dms_to_dd $lon_d, $lon_m, $lon_s | read lon_dd
