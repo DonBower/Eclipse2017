@@ -69,14 +69,14 @@ while [ True ]
         lat_m=$min
         lat_s=$sec
         dms_to_dd $lat_d $lat_m $lat_s
-        lat_dd = $dd
+        lat_dd=$dd
         extract_dms $gps_londeg
         printf "extract_dms returned %03i° %02i\' %02.2f\"\n" $deg $min $sec
         lon_d=$deg
         lon_m=$min
         lon_s=$sec
         dms_to_dd $lon_d $lon_m $lon_s
-        lat_dd = $dd
+        lon_dd=$dd
 
         printf "%22s %2.6f %3.6f\n" $ts $lat_dd $lon_dd
 #        printf "%22s %2.6f %3.6f\n" $ts $lat_dd $lon_dd >> %DATAFILE
