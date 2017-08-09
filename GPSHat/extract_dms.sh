@@ -57,5 +57,6 @@ lon_dd=$dd
 echo $lon_dd
 echo ""
 ts=$(date +"%H:%M:%S.%N")
-
+echo -e "ds is $ds"
+echo -e "ts is $ts"
 printf "%10s %10s %2.6f %3.6f\n" $ds $ts $lat_dd $lon_dd
