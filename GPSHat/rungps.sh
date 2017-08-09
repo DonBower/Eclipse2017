@@ -9,7 +9,8 @@ LOGFILE=$BASEDIR/gpslog.txt
 RAWFILE=$BASEDIR/rawdata/gpsraw-$DATE.txt
 DATAFILE=$BASEDIR/gpsdata-$DATE.txt
 
-ts=$(date +"%Y/%m/%d %H:%M:%S.%N")
+ds=$(date +"%Y/%m/%d")
+echo $ds
 echo $ts "Start GPS Process" >> $LOGFILE
 
 echo -e "inputDevice is $inputDevice"
@@ -44,7 +45,7 @@ while [ True ]
       # get a precise time stamp
       # %N = nanoseconds
       #
-      ts=$(date +"%Y/%m/%d %H:%M:%S.%N")
+      ts=$(date +"%H:%M:%S.%N")
 
       echo $ts $this_line >> $RAWFILE
 
@@ -81,7 +82,7 @@ while [ True ]
         printf "dms_to_dd returned %03.6f\n" $dd
         lon_dd=$dd
 
-        printf "%22s %2.6f %3.6f\n" $ts $lat_dd $lon_dd
+        printf "%10s %10s %2.6f %3.6f\n" $ds $ts $lat_dd $lon_dd
 #        printf "%22s %2.6f %3.6f\n" $ts $lat_dd $lon_dd >> %DATAFILE
         exit
   	fi
