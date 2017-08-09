@@ -1,6 +1,9 @@
 #!/bin/bash
 this_line=$GPGGA,050241.000,3401.8807,N,11725.0211,W,2,09,1.21,329.8,M,-32.8,M,0000,0000*53
 IFS=":"
+ds=$(date +"%Y/%m/%d")
+echo $ds
+
 function extract_dms() {
 degrees_mf=`echo $1 | cut -d '.' -f 1`
 if [[ ${#degrees_mf} -eq 5 ]]; then
@@ -53,5 +56,6 @@ printf "dms_to_dd returned %03.6f\n" $dd
 lon_dd=$dd
 echo $lon_dd
 echo ""
+ts=$(date +"%H:%M:%S.%N")
 
 printf "%10s %10s %2.6f %3.6f\n" $ds $ts $lat_dd $lon_dd
