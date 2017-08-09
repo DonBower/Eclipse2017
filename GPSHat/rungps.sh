@@ -14,7 +14,7 @@ echo $ts "Start GPS Process" >> $LOGFILE
 
 echo -e "inputDevice is $inputDevice"
 
-function convert() {
+function extract_dms() {
 degrees_mf=`echo $1 | cut -d '.' -f 1`
 if [[ ${#degrees_mf} -eq 5 ]]; then
   deg=${1:0:3}
