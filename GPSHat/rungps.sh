@@ -69,6 +69,8 @@ while [ True ]
         lat_m=$min
         lat_s=$sec
         dms_to_dd $lat_d $lat_m $lat_s
+        printf "dms_to_dd returned %03.6f\n" $dd
+
         lat_dd=$dd
         extract_dms $gps_londeg
         printf "extract_dms returned %03i° %02i\' %02.2f\"\n" $deg $min $sec
@@ -76,32 +78,12 @@ while [ True ]
         lon_m=$min
         lon_s=$sec
         dms_to_dd $lon_d $lon_m $lon_s
+        printf "dms_to_dd returned %03.6f\n" $dd
         lon_dd=$dd
 
         printf "%22s %2.6f %3.6f\n" $ts $lat_dd $lon_dd
 #        printf "%22s %2.6f %3.6f\n" $ts $lat_dd $lon_dd >> %DATAFILE
         exit
-  	fi
-
-  	if [[ $this_line == \$GPRMC* ]]
-  	then
-          # ok, it looks like a GPS reading (may be void)
-          # if field 3 is V, the reading is void (or maybe
-          # only untrusted?), if it is A, then the position
-          # is Active (and therefore given with confidence?)
-          #
-  		if [[ $(echo $this_line | cut -d, -f 4-6) != ",,," ]]
-  		then
-  		# get latitude and longitude
-  			gps_fix=$(echo $this_line | cut -d, -f 3)
-  			gps_pos=($(echo $this_line | cut -d, -f 3-7 | tr , ' ' | sed 's/\(^0*\)\|\(\b0*\)//g'))
-              # show
-  			if [[ "$gps_fix" != "V" ]]
-  			then
-#  				echo -e "$ts ${gps_pos[@]}" >> $DATAFILE
-  				sleep 5s
-  			fi
-  		fi
   	fi
 
 done < $inputDevice
