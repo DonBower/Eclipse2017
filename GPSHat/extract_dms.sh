@@ -59,5 +59,4 @@ echo ""
 timeStamp=$(date +"%H:%M:%S.%N")
 echo -e "dateStamp is $dateStamp"
 echo -e "timeStamp is $timeStamp"
-printf "%10s %10s %2.6f %3.6f\n" $dateStamp $timeStamp $lat_dd $lon_dd
-printf "%10s %10s %2.6f %3.6f\n" "2017/08/10" "03:07:24.306347839" $lat_dd $lon_dd
+printf "%10s %10s %2.6f %3.6f\n" $(date +"%Y/%m/%d") $(date +"%H:%M:%S") $lat_dd $lon_dd
