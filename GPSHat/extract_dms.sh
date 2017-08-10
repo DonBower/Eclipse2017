@@ -1,8 +1,8 @@
 #!/bin/bash
 this_line=$GPGGA,050241.000,3401.8807,N,11725.0211,W,2,09,1.21,329.8,M,-32.8,M,0000,0000*53
 IFS=":"
-ds=$(date +"%Y/%m/%d")
-echo $ds
+dateStamp=$(date +"%Y/%m/%d")
+echo $dateStamp
 
 function extract_dms() {
 degrees_mf=`echo $1 | cut -d '.' -f 1`
@@ -56,7 +56,8 @@ printf "dms_to_dd returned %03.6f\n" $dd
 lon_dd=$dd
 echo $lon_dd
 echo ""
-ts=$(date +"%H:%M:%S.%N")
-echo -e "ds is $ds"
-echo -e "ts is $ts"
-printf "%10s %10s %2.6f %3.6f\n" $ds $ts $lat_dd $lon_dd
+timeStamp=$(date +"%H:%M:%S.%N")
+echo -e "dateStamp is $dateStamp"
+echo -e "timeStamp is $timeStamp"
+printf "%10s %10s %2.6f %3.6f\n" $dateStamp $timeStamp $lat_dd $lon_dd
+printf "%10s %10s %2.6f %3.6f\n" "2017/08/10" "03:07:24.306347839" $lat_dd $lon_dd
