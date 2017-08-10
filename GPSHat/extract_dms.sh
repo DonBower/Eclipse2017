@@ -56,9 +56,9 @@ printf "dms_to_dd returned %03.6f\n" $dd
 lon_dd=$dd
 echo $lon_dd
 echo ""
-timeStamp=$(date +"%H\:%M\:%S")
+timeStamp=$(date +"%H:%M:%S")
 echo -e "dateStamp is $dateStamp"
 echo -e "timeStamp is $timeStamp"
-printf "%10s" $dateStamp
-printf " %10s" $timeStamp
+printf "%10s" "$dateStamp"
+printf " %10s" "$timeStamp"
 printf " %2.6f %3.6f\n" $lat_dd $lon_dd
