@@ -9,9 +9,8 @@ LOGFILE=$BASEDIR/gpslog.txt
 RAWFILE=$BASEDIR/rawdata/gpsraw-$DATE.txt
 DATAFILE=$BASEDIR/gpsdata-$DATE.txt
 
-ds=$(date +"%Y/%m/%d")
-echo $ds
-echo $ts "Start GPS Process" >> $LOGFILE
+dateStamp=$(date +"%Y/%m/%d")
+echo $dateStamp "Start GPS Process" >> $LOGFILE
 
 echo -e "inputDevice is $inputDevice"
 
@@ -46,9 +45,9 @@ while [ True ]
       # get a precise time stamp
       # %N = nanoseconds
       #
-      ts=$(date +"%H:%M:%S.%N")
+      timeStamp=$(date +"%H:%M:%S.%N")
 
-      echo $ts $this_line >> $RAWFILE
+      echo $timeStamp $this_line >> $RAWFILE
 
       # let us filter the current position
       #
