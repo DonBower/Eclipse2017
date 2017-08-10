@@ -32,7 +32,7 @@ gps_fix=$(echo $this_line | cut -d, -f 7)
 gps_sats=$(echo $this_line | cut -d, -f 8)
 gps_hdop=$(echo $this_line | cut -d, -f 9)
 gps_elev=$(echo $this_line | cut -d, -f 10)
-
+gps_elevscale=$(echo $this_line | cut -d, -f 11)
 extract_dms $gps_latdeg
 #printf "extract_dms returned %03i° %02i\' %02.2f\"\n" $deg $min $sec
 lat_d=$deg
@@ -52,7 +52,4 @@ dms_to_dd $lon_d $lon_m $lon_s
 lon_dd=$dd
 
 timeStamp=$(date +"%H:%M:%S")
-echo $gps_latdir
-echo $gps_londir
-
 printf "%8s %8s %2.6f %1s %3.6f %1s\n" "$dateStamp" "$timeStamp" $lat_dd "$gps_latdir" $lon_dd "$gps_londir"
