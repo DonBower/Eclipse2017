@@ -31,7 +31,7 @@ thisGain = tsl.get_gain()
 def setup():
     print("Setting up, please wait...")
     print("Open File {} for append".format(DATAFILE))
-    print("{0:>10} {1:>10} {2:>10} {3:>10}".format('Time', 'Full Lux', 'Visiable', 'Infrared'))
+    print("{0:>10} {1:>10} {2:>10} {3:>10}".format('Time', 'IR', 'Visiable', 'UV'))
 
 
 def loop():
@@ -40,7 +40,7 @@ def loop():
         newfull = tsl.get_luminosity(FULLSPECTRUM)
         newlux = tsl.get_luminosity(VISIBLE)
         newir = tsl.get_luminosity(INFRARED)
-        newuv = adc.read_adc(0, gain=GAIN, data_rate=128)
+        newuv = adc.read_adc(0, gain=ADSGAIN, data_rate=128)
         TimeStampStr = time.strftime("%Y-%m-%d %H:%M:%S")
         TimeStr = time.strftime("%H:%M:%S")
 
