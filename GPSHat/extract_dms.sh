@@ -52,4 +52,4 @@ dms_to_dd $lon_d $lon_m $lon_s
 lon_dd=$dd
 
 timeStamp=$(date +"%H:%M:%S")
-printf "%8s %8s %2.6f %3.6f\n" "$dateStamp" "$timeStamp" $lat_dd $lon_dd
+printf "%8s %8s %2.6f %1s %3.6f %1s\n" "$dateStamp" "$timeStamp" $lat_dd "$gps_latdir" $lon_dd "$gps_londir"
