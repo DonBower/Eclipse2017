@@ -2,7 +2,7 @@
 this_line=$GPGGA,050241.000,3401.8807,N,11725.0211,W,2,09,1.21,329.8,M,-32.8,M,0000,0000*53
 IFS=":"
 dateStamp=$(date +"%Y/%m/%d")
-echo $dateStamp
+#echo $dateStamp
 
 function extract_dms() {
 degrees_mf=`echo $1 | cut -d '.' -f 1`
@@ -22,7 +22,7 @@ function dms_to_dd() {
   dd=`echo "scale=6; $1 + $2/60 + $3/3600" | bc`
 }
 
-echo "Lets Convert!"
+#echo "Lets Convert!"
 gps_time=$(echo $this_line | cut -d, -f 2)
 gps_latdeg=$(echo $this_line | cut -d, -f 3)
 gps_latdir=$(echo $this_line | cut -d, -f 4)
@@ -33,7 +33,6 @@ gps_sats=$(echo $this_line | cut -d, -f 8)
 gps_hdop=$(echo $this_line | cut -d, -f 9)
 gps_elev=$(echo $this_line | cut -d, -f 10)
 
-#printf "gps_latdeg is %5.4f\n" $gps_latdeg
 extract_dms $gps_latdeg
 #printf "extract_dms returned %03i° %02i\' %02.2f\"\n" $deg $min $sec
 lat_d=$deg
@@ -42,8 +41,6 @@ lat_s=$sec
 dms_to_dd $lat_d $lat_m $lat_s
 #printf "dms_to_dd returned %03.6f\n" $dd
 lat_dd=$dd
-echo $lat_dd
-echo ""
 
 extract_dms $gps_londeg
 #printf "extract_dms returned %03i° %02i\' %02.2f\"\n" $deg $min $sec
@@ -53,7 +50,6 @@ lon_s=$sec
 dms_to_dd $lon_d $lon_m $lon_s
 #printf "dms_to_dd returned %03.6f\n" $dd
 lon_dd=$dd
-echo $lon_dd
 
 timeStamp=$(date +"%H:%M:%S")
 printf "%8s %8s %2.6f %3.6f\n" "$dateStamp" "$timeStamp" $lat_dd $lon_dd
