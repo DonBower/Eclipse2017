@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import tsl2591
+import Adafruit_ADS1x15
 import time
 
 BASEDIR = "/mnt/usbstick/data"
@@ -18,14 +19,14 @@ GAIN_HIGH = 0x20  # medium gain (428x)
 GAIN_MAX = 0x30  # max gain (9876x)
 
 tsl = tsl2591.Tsl2591()  # initialize
+adc = Adafruit_ADS1x15.ADS1115()
+ADSGAIN = 1
 
 thisGain = tsl.get_gain()
-print('This Gain is {}'.format(thisGain))
-
+#print('This Gain is {}'.format(thisGain))
 tsl.set_gain(GAIN_MED)
-
 thisGain = tsl.get_gain()
-print('New Gain is {}'.format(thisGain))
+#print('New Gain is {}'.format(thisGain))
 
 def setup():
     print("Setting up, please wait...")
@@ -39,12 +40,13 @@ def loop():
         newfull = tsl.get_luminosity(FULLSPECTRUM)
         newlux = tsl.get_luminosity(VISIBLE)
         newir = tsl.get_luminosity(INFRARED)
+        newuv = adc.read_adc(0, gain=GAIN, data_rate=128)
         TimeStampStr = time.strftime("%Y-%m-%d %H:%M:%S")
         TimeStr = time.strftime("%H:%M:%S")
 
-        print("{0:10} {1:10} {2:10} {3:10}".format(TimeStr,newfull, newlux, newir))
-        F1.write('{0:20} {1:10} {2:10} {3:10}\n'.format(TimeStampStr, newfull, newlux, newir))
-        time.sleep(.5)
+        print("{0:10} {1:10} {2:10} {3:10}".format(TimeStr,newir, newlux, newuv))
+        F1.write('{0:20} {1:10} {2:10} {3:10}\n'.format(TimeStampStr, newir, newlux, newuv))
+        time.sleep(5)
 
 def destroy():
     F1.close()
