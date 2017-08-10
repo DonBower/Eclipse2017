@@ -10,7 +10,6 @@ if [[ ${#degrees_mf} -eq 5 ]]; then
   deg=${1:0:3}
   min=${1:3:2}
   s=${1:6:4}
-
 else
   deg=${1:0:2}
   min=${1:2:2}
@@ -34,29 +33,27 @@ gps_sats=$(echo $this_line | cut -d, -f 8)
 gps_hdop=$(echo $this_line | cut -d, -f 9)
 gps_elev=$(echo $this_line | cut -d, -f 10)
 
-printf "gps_latdeg is %5.4f\n" $gps_latdeg
+#printf "gps_latdeg is %5.4f\n" $gps_latdeg
 extract_dms $gps_latdeg
-printf "extract_dms returned %03i° %02i\' %02.2f\"\n" $deg $min $sec
+#printf "extract_dms returned %03i° %02i\' %02.2f\"\n" $deg $min $sec
 lat_d=$deg
 lat_m=$min
 lat_s=$sec
 dms_to_dd $lat_d $lat_m $lat_s
-printf "dms_to_dd returned %03.6f\n" $dd
+#printf "dms_to_dd returned %03.6f\n" $dd
 lat_dd=$dd
 echo $lat_dd
 echo ""
 
 extract_dms $gps_londeg
-printf "extract_dms returned %03i° %02i\' %02.2f\"\n" $deg $min $sec
+#printf "extract_dms returned %03i° %02i\' %02.2f\"\n" $deg $min $sec
 lon_d=$deg
 lon_m=$min
 lon_s=$sec
 dms_to_dd $lon_d $lon_m $lon_s
-printf "dms_to_dd returned %03.6f\n" $dd
+#printf "dms_to_dd returned %03.6f\n" $dd
 lon_dd=$dd
 echo $lon_dd
-echo ""
+
 timeStamp=$(date +"%H:%M:%S")
-echo -e "dateStamp is $dateStamp"
-echo -e "timeStamp is $timeStamp"
-printf "%10s %10s %2.6f %3.6f\n" "$dateStamp" "$timeStamp" $lat_dd $lon_dd
+printf "%8s %8s %2.6f %3.6f\n" "$dateStamp" "$timeStamp" $lat_dd $lon_dd
