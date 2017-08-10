@@ -86,7 +86,7 @@ while [ True ]
         timeStamp=$(date +"%H:%M:%S")
         printf "%8s %8s %2.6f %1s %3.6f %1s% 4.1f %1s\n" "$dateStamp" "$timeStamp" $lat_dd "$gps_latdir" $lon_dd "$gps_londir" $gps_elev $gps_elevscale
         printf "%8s %8s %2.6f %1s %3.6f %1s% 4.1f %1s\n" "$dateStamp" "$timeStamp" $lat_dd "$gps_latdir" $lon_dd "$gps_londir" $gps_elev $gps_elevscale >> %DATAFILE
-        time.sleep(5)
+        sleep 5s
   	fi
 
 done < $inputDevice
