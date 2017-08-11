@@ -28,7 +28,8 @@ def loop():
     bme = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_OSAMPLE_8)
     mcp = MCP9808.MCP9808()
     while True:
-        tempC = mcp.readTempC()
+#        tempC = mcp.readTempC()
+        tempC = bme.read_temperature()
         pascals = bme.read_pressure()
         humidity = bme.read_humidity()
         readcount = readcount + 1
