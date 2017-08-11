@@ -6,6 +6,8 @@
   2017-08-04 - Donald Bower
 '''
 from Adafruit_BME280 import *
+import Adafruit_MCP9808.MCP9808 as MCP9808
+
 import time
 
 BASEDIR = "/mnt/usbstick/data"
@@ -15,25 +17,29 @@ DATAFILE='{:s}/wxdata_{:s}.txt'.format(BASEDIR,DATESTR)
 F1 = open(DATAFILE, "w", 1) # Open File, write to disk every line.
 
 def setup():
-    print('Setting up BME280 Sensor, please wait...')
+    print('Setting up MCP9808 and BME280 Sensors, please wait...')
     print('Open File {:s} for append'.format(DATAFILE))
+
+def c_to_f(c):
+	return c * 9.0 / 5.0 + 32.0
 
 def loop():
     readcount = 0
-    sensor = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_OSAMPLE_8)
-
+    bme = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_OSAMPLE_8)
+    mcp = MCP9808.MCP9808()
     while True:
-        degrees = sensor.read_temperature()
-        pascals = sensor.read_pressure()
-        humidity = sensor.read_humidity()
+        tempC = mcp.readTempC()
+        pascals = bme.read_pressure()
+        humidity = bme.read_humidity()
         readcount = readcount + 1
-        if degrees is not None and pascals is not None and humidity is not None:
+        if tempC is not None and pascals is not None and humidity is not None:
+            tempF = c_to_f(tempC)
             hectopascals = pascals / 100
             TimeStampStr = time.strftime("%Y-%m-%d %H:%M:%S")
             if readcount > 6:
-                print('{0:18} {1:0.3f}C {2:0.2f}hPa {3:0.2f}%'.format(TimeStampStr,degrees, hectopascals, humidity))
+                print('{0:18} {1:0.3f}C {2:0.3f}F {3:0.2f}hPa {4:0.2f}%'.format(TimeStampStr,tempC, tempF, hectopascals, humidity))
                 readcount = 1
-            F1.write('{0:18} {1:0.3f}C {2:0.2f}hPa {3:0.2f}%\n'.format(TimeStampStr,degrees, hectopascals, humidity))
+            F1.write('{0:18} {1:0.3f}C {2:0.3f}F {3:0.2f}hPa {4:0.2f}%'.format(TimeStampStr,tempC, tempF, hectopascals, humidity))
         else:
             print ("Failed to get WX readings, will retry in ~5 seconds")
         time.sleep(1)
