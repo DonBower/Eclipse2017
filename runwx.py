@@ -28,19 +28,20 @@ def loop():
     bme = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_OSAMPLE_8)
     mcp = MCP9808.MCP9808()
     while True:
-        tempature = bme.read_temperature()
         tempC = mcp.readTempC()
+        temperatureC = bme.read_temperature()
         pascals = bme.read_pressure()
         humidity = bme.read_humidity()
         readcount = readcount + 1
         if tempC is not None and pascals is not None and humidity is not None:
             tempF = c_to_f(tempC)
+            temperatureF = c_to_f(temperatureC)
             hectopascals = pascals / 100
             TimeStampStr = time.strftime("%Y-%m-%d %H:%M:%S")
             if readcount > 6:
-                print('{0:18} {1:0.3f}C {2:0.3f}F {3:0.2f}hPa {4:0.2f}%'.format(TimeStampStr,tempC, tempF, hectopascals, humidity))
+                print('{0:18} {1:0.3f}C {2:0.3f}F {3:0.3f}C {4:0.3f}F {5:0.2f}hPa {6:0.2f}%'.format(TimeStampStr, tempC, tempF, temperatureC, temperatureF, hectopascals, humidity))
                 readcount = 1
-            F1.write('{0:18} {1:0.3f}C {2:0.3f}F {3:0.2f}hPa {4:0.2f}%'.format(TimeStampStr,tempC, tempF, hectopascals, humidity))
+            F1.write('{0:18} {1:0.3f}C {2:0.3f}F {3:0.2f}hPa {4:0.2f}%'.format(TimeStampStr, tempC, tempF, hectopascals, humidity))
         else:
             print ("Failed to get WX readings, will retry in ~5 seconds")
         time.sleep(1)
