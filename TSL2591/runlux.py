@@ -5,7 +5,7 @@ import time
 
 BASEDIR = "/mnt/usbstick/data"
 TimeStampStr = time.strftime("%Y-%m-%d %H:%M:%S")
-DATAFILE = '{0:s}/tsldata_{1:s}.txt'.format(BASEDIR,TimeStampStr)
+DATAFILE = '{0:s}/luxdata_{1:s}.txt'.format(BASEDIR,TimeStampStr)
 
 F1 = open(DATAFILE, "w", 1) # Open File, write to disk every line.
 
