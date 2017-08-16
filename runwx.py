@@ -41,7 +41,7 @@ def loop():
             if readcount > 6:
                 print('{0:18} {1:0.3f}C {2:0.3f}F {3:0.3f}C {4:0.3f}F {5:0.2f}hPa {6:0.2f}%'.format(TimeStampStr, tempC, tempF, temperatureC, temperatureF, hectopascals, humidity))
                 readcount = 1
-            F1.write('{0:18} {1:0.3f}C {2:0.3f}F {3:0.2f}hPa {4:0.2f}%'.format(TimeStampStr, tempC, tempF, hectopascals, humidity))
+            F1.write('{0:18} {1:0.3f}C {2:0.3f}F {3:0.2f}hPa {4:0.2f}%\n'.format(TimeStampStr, tempC, tempF, hectopascals, humidity))
         else:
             print ("Failed to get WX readings, will retry in ~5 seconds")
         time.sleep(1)
