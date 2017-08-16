@@ -48,10 +48,12 @@ while [ True ]
       timeStamp=$(date +"%H:%M:%S.%N")
 
       echo $timeStamp $this_line >> $RAWFILE
+      gps_chksum=$(echo $this_line | cut -d, -f 15)
+      chksum_star=$(echo $gps_chksum | cut -c1)
 
       # let us filter the current position
       #
-  	if [[ $this_line == \$GPGGA* ]]
+  	if [[ $this_line == \$GPGGA* ] && [ $chksum_star == "*" ]]
     	then
         gps_time=$(echo $this_line | cut -d, -f 2)
         gps_latdeg=$(echo $this_line | cut -d, -f 3)
