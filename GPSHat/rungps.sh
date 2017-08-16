@@ -53,7 +53,7 @@ while [ True ]
 
       # let us filter the current position
       #
-  	if [ $gps_sentance -eq "$GPGGA" ] && [ $gps_chksum_star -eq "*" ]
+  	if [[ $gps_sentance -eq "$GPGGA" ]] && [[ $gps_chksum_star -eq "*" ]]
     	then
         gps_time=$(echo $this_line | cut -d, -f 2)
         gps_latdeg=$(echo $this_line | cut -d, -f 3)
