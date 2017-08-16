@@ -9,7 +9,7 @@ LOGFILE=$BASEDIR/gpslog.txt
 RAWFILE=$BASEDIR/rawgps/gpsraw-$DATE.txt
 DATAFILE=$BASEDIR/data/gpsdata-$DATE.txt
 
-dateStamp=$(date +"%Y/%m/%d")
+dateStamp=$(date +"%Y-%m-%d")
 echo $dateStamp "Start GPS Process" >> $LOGFILE
 
 echo -e "inputDevice is $inputDevice"
