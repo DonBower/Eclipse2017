@@ -44,8 +44,8 @@ def loop():
         TimeStampStr = time.strftime("%Y-%m-%d %H:%M:%S")
         TimeStr = time.strftime("%H:%M:%S")
 
-        print("{0:10} {1:10} {2:10} {3:10}".format(TimeStr,newir, newlux, newuv))
-        F1.write('{0:20} {1:10} {2:10} {3:10}\n'.format(TimeStampStr, newir, newlux, newuv))
+        print("{0:10} {1:10}ir {2:10}rgb {3:10}uv".format(TimeStr,newir, newlux, newuv))
+        F1.write('{0:20} {1:10}ir {2:10}rgb {3:10}uv\n'.format(TimeStampStr, newir, newlux, newuv))
         time.sleep(5)
 
 def destroy():
