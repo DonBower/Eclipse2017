@@ -4,7 +4,7 @@ import Adafruit_ADS1x15
 import time
 
 BASEDIR = "/mnt/usbstick/data"
-TimeStampStr = time.strftime("%Y-%m-%d %H:%M:%S")
+TimeStampStr = time.strftime("%Y-%m-%d_%H-%M-%S")
 DATAFILE = '{0:s}/luxdata_{1:s}.txt'.format(BASEDIR,TimeStampStr)
 
 F1 = open(DATAFILE, "w", 1) # Open File, write to disk every line.
