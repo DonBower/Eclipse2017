@@ -49,11 +49,15 @@ while [ True ]
 
       echo $timeStamp $this_line >> $RAWFILE
       gps_sentance=$(echo $this_line | cut -d, -f 1)
+      gps_chksum=$(echo $this_line | cut -d, -f 15 )
       gps_chksum_star=$(echo $this_line | cut -d, -f 15 | cut -c1)
-
+      #
       # let us filter the current position
       #
-  	if [[ $gps_sentance -eq "$GPGGA" ]] && [[ $gps_chksum_star -eq "*" ]]
+      #  echo -e "GPS Sentance is ${gps_sentance}"
+      #  echo -e "Checksum is ${gps_chksum}"
+      #  echo -e "Checksum Star is ${gps_chksum_star}"
+  	if [[ ${gps_sentance} == "\$GPGGA" && ${gps_chksum_star} == "*" ]]
     	then
         gps_time=$(echo $this_line | cut -d, -f 2)
         gps_latdeg=$(echo $this_line | cut -d, -f 3)
