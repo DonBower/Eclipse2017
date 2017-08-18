@@ -69,6 +69,7 @@ lrwxrwxrwx 1 root root 5 Aug 26 03:24 /dev/serial1 -> ttyS0
 
 Next we need to install the GPS daemon, gpsd. To install gpsd, simply run the following commands from the console:
 ```
+sudo apt-get update
 sudo apt-get install gpsd gpsd-clients python-gps
 ```
 

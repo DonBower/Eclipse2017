@@ -50,7 +50,11 @@ while [ True ]
       echo $timeStamp $this_line >> $RAWFILE
       gps_sentance=$(echo $this_line | cut -d, -f 1)
       gps_chksum=$(echo $this_line | cut -d, -f 15 )
-      gps_chksum_star=$(echo $this_line | cut -d, -f 15 | cut -c1)
+      if [ ${#gps_chksum} == 3 ]; then
+        gps_chksum_star=$(echo $this_line | cut -d, -f 15 | cut -c1)
+      else
+        gps_chksum_star=$(echo $this_line | cut -d, -f 15 | cut -c5)
+      fi
       #
       # let us filter the current position
       #

@@ -18,8 +18,9 @@ To install the python module you first need to install the ibffi-dev package, th
 
 
 ```
-sudo apt-get libffi-dev
+sudo apt-get install libffi-dev
 sudo python setup.py install
+sudo python3 setup.py install
 ```
 
 
