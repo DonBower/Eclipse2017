@@ -1,10 +1,10 @@
 #!/bin/bash
 BASEDIR="/mnt/usbstick"
 DATE=$(date +"%Y-%m-%d_%H-%M-%S")
-GPSERRFILE=$BASEDIR/gpserrlog$DATE.txt
-WXERRFILE=$BASEDIR/wxerrlog$DATE.txt
-LUXERRFILE=$BASEDIR/luxerrlog$DATE.txt
-CAMERRFILE=$BASEDIR/camerrlog$DATE.txt
+GPSERRFILE=$BASEDIR/gpserrlog.txt
+WXERRFILE=$BASEDIR/wxerrlog.txt
+LUXERRFILE=$BASEDIR/luxerrlog.txt
+CAMERRFILE=$BASEDIR/camerrlog.txt
 echo -e "$DATE Start WX, GPS, CAM" >>  $BASEDIR/startlog.txt
 nohup /home/pi/Developer/Eclipse2017/GPSHat/rungps.sh > /dev/null 2>$GPSERRFILE &
 nohup /home/pi/Developer/Eclipse2017/runwx.py > /dev/null 2>$WXERRFILE &
