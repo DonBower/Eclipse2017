@@ -107,4 +107,10 @@ If you have a fix, you'll see something like the following information in the te
 [logo]: https://github.com/DonBower/Eclipse2017/blob/master/GPSHat/cgps%20-s%20output.png "cgps -s output"
 
 <br>
+
+You will need to install a couple more packages to get the rungps.sh script to work:
+
+```
+sudo apt install bc
+```
 <br>
