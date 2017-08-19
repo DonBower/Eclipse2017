@@ -1,5 +1,5 @@
 #!/bin/bash
 BASEDIR=/mnt/usbstick
-gpsdata=$BASEDIR/data/gpsdata-2017-08-19_12-21-21.txt
+gpsfile=`ls -1t $BASEDIR/data/gpsdata* | tail -1`
 
-nohup lxterminal --title="Watch GPS Log" -e "bash -c tail -f ${gpsdata}" &
+nohup lxterminal --title="Watch GPS Log" -e "bash -c tail -f ${gpsfile}" &
