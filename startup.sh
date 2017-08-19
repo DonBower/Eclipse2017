@@ -5,7 +5,7 @@ GPSERRFILE=$BASEDIR/gpserrlog.txt
 WXERRFILE=$BASEDIR/wxerrlog.txt
 LUXERRFILE=$BASEDIR/luxerrlog.txt
 CAMERRFILE=$BASEDIR/camerrlog.txt
-echo -e "$DATE Start WX, GPS, CAM" >>  $BASEDIR/startlog.txt
+echo -e "$DATE Start LUX, WX, GPS, CAM" >>  $BASEDIR/startlog.txt
 nohup /home/pi/Developer/Eclipse2017/GPSHat/rungps.sh > /dev/null 2>$GPSERRFILE &
 nohup /home/pi/Developer/Eclipse2017/runwx.py > /dev/null 2>$WXERRFILE &
 nohup /home/pi/Developer/Eclipse2017/TSL2591/runlux.py > /dev/null 2>$LUXERRFILE &
