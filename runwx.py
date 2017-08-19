@@ -11,7 +11,7 @@ import Adafruit_MCP9808.MCP9808 as MCP9808
 import time
 
 BASEDIR = "/mnt/usbstick/data"
-DATESTR = time.strftime("%Y-%m-%d_%H:%M:%S")
+DATESTR = time.strftime("%Y-%m-%d_%H-%M-%S")
 DATAFILE='{:s}/wxdata_{:s}.txt'.format(BASEDIR,DATESTR)
 
 F1 = open(DATAFILE, "w", 1) # Open File, write to disk every line.
