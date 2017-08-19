@@ -12,3 +12,5 @@ nohup /home/pi/Developer/Eclipse2017/TSL2591/runlux.py > /dev/null 2>$LUXERRFILE
 nohup /home/pi/Developer/Eclipse2017/CAMERA/runcam.sh > /dev/null 2>$CAMERRFILE &
 echo "UID        PID  PPID  C STIME TTY          TIME CMD" >> $BASEDIR/startlog.txt
 ps -ef | grep Eclipse2017 | grep -v grep >> $BASEDIR/startlog.txt
+sleep 5s
+nohup /home/pi/Developer/Eclipse2017/openterms.sh >> $BASEDIR/startlog.txt 2>&1 &
