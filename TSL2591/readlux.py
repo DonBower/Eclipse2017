@@ -44,7 +44,12 @@ def loop():
 
         print("{0:10} {1:10} {2:10} {3:10}".format(TimeStr,newfull, newlux, newir))
         F1.write('{0:20} {1:10} {2:10} {3:10}\n'.format(TimeStampStr, newfull, newlux, newir))
-        time.sleep(.5)
+        time.sleep(1)
+        timeseconds = int(time.strftime("%S"))
+        while timeseconds%5 > 0:
+            time.sleep(.2)
+            timeseconds = int(time.strftime("%S"))
+
 
 def destroy():
     F1.close()
