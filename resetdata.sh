@@ -13,7 +13,7 @@ echo "" > $WXERRFILE
 echo "" > $LUXERRFILE
 echo "" > $CAMERRFILE
 rm $BASEDIR/data/*
-rm $BASEDIR/data/picures/*
-rm $BASEDIR/data/rawgps/*
+rm $BASEDIR/pictures/*
+rm $BASEDIR/rawgps/*
 
 echo -e "$DATE Reset Data" >> $BASEDIR/startlog.txt
