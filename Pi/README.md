@@ -180,7 +180,7 @@ sudo i2cdetect -y 1
 ```
 
 # Autostart
-To start the four programs automatically on boot (useful for use when you have no access to the pi in the field), edit the crontab `sudo crontab -e -u pi`
+To start the four programs automatically on boot (useful for use when you have no access to the pi in the field), edit the crontab (`sudo crontab -e -u pi`)
 Add the following line:
 
 ```
